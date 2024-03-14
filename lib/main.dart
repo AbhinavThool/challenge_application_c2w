@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'package:challenge_application_c2w/Screens/drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'Screens/name.dart';
 
 void main() {
   runApp(const MyApp());
@@ -71,7 +74,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     Timer(
         Duration(seconds: 2),
         () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const HomePage())));
+            MaterialPageRoute(builder: (context) => const welcomescreen2())));
   }
   @override
   Widget build(BuildContext context) {
@@ -84,12 +87,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             Color.fromARGB(255, 255, 195, 160)
           ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
         ),
-        child: const Center(
+        child: Center(
           child: Text(
                 "Welcome",
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 70),
+                style: GoogleFonts.museoModerno(fontWeight: FontWeight.w500, fontSize: 70)
                 
-              )
+              ),
         ),
       ),
       
