@@ -29,29 +29,39 @@ class _HomePage extends State<HomePage> {
           icon: const Icon(Icons.menu_outlined),
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.settings))
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.settings,
+            ),
+          )
         ],
-        backgroundColor: const Color.fromARGB(255, 239, 214, 172),
+        backgroundColor: const Color.fromARGB(
+          255,
+          239,
+          214,
+          172,
+        ),
       ),
       drawer: Drawer(
         child: ListView(children: [
           const DrawerHeader(
-              decoration:
-                  BoxDecoration(color: Color.fromARGB(255, 127, 167, 236)),
-              child: Column(
-                //mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Hello,",
-                    style: TextStyle(fontSize: 35),
-                  ),
-                  Text(
-                    "Saurabh",
-                    style: TextStyle(fontSize: 60),
-                  )
-                ],
-              )),
+            decoration:
+                BoxDecoration(color: Color.fromARGB(255, 232, 198, 185)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Hello,",
+                  style: TextStyle(fontSize: 35),
+                ),
+                Text(
+                  "Saurabh",
+                  style: TextStyle(fontSize: 60),
+                )
+              ],
+            ),
+          ),
           ListTile(
               leading: const Icon(Icons.manage_accounts_rounded),
               title: const Text("Profile"),
@@ -106,14 +116,28 @@ class _HomePage extends State<HomePage> {
               onTap: () => Navigator.pop(context)),
         ]),
       ),
-      
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
               Color.fromARGB(255, 239, 214, 172),
-              Color.fromARGB(255, 255, 195, 160)
-            ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+              Color.fromARGB(255, 255, 195, 160),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
           ),
-        ));
+        ),
+      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   items: [
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.person),
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.person),
+      //     ),
+      //   ],
+      // ),
+    );
   }
 }

@@ -3,16 +3,17 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'drawer.dart';
 
-class interstspage2 extends StatefulWidget {
-  const interstspage2({super.key});
+class DetailedInterestsScreen extends StatefulWidget {
+  const DetailedInterestsScreen({super.key});
 
   @override
-  State<interstspage2> createState() => _interstspage2State();
+  State<DetailedInterestsScreen> createState() =>
+      _DetailedInterestsScreenState();
 }
 
 List<bool> isCheckedList = List.generate(6, (index) => false);
 
-class _interstspage2State extends State<interstspage2> {
+class _DetailedInterestsScreenState extends State<DetailedInterestsScreen> {
   Color c1 = const Color.fromRGBO(255, 195, 160, 1);
 
   List title = [
@@ -30,29 +31,37 @@ class _interstspage2State extends State<interstspage2> {
     return Scaffold(
       body: Container(
           decoration: const BoxDecoration(
-            gradient: RadialGradient(colors: [
-              Color.fromRGBO(239, 214, 172, 1),
-              Color.fromRGBO(255, 195, 160, 1)
-            ]),
+            gradient: RadialGradient(
+              colors: [
+                Color.fromRGBO(239, 214, 172, 1),
+                Color.fromRGBO(255, 195, 160, 1),
+              ],
+            ),
           ),
           child: Padding(
             padding: const EdgeInsets.all(15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(height: 20),
                 IconButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
                   icon: const Icon(Icons.arrow_back),
                 ),
-                Text(
-                  "Choose what challenges you would like to take",
-                  style: GoogleFonts.montserrat(
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  child: Text(
+                    "Choose what challenges you would like to take",
+                    style: GoogleFonts.montserrat(
                       textStyle: const TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w700,
-                          color: Color.fromRGBO(24, 58, 55, 1))),
+                        fontSize: 24,
+                        fontWeight: FontWeight.w700,
+                        color: Color.fromRGBO(24, 58, 55, 1),
+                      ),
+                    ),
+                  ),
                 ),
                 Expanded(
                   child: ListView.builder(
@@ -116,7 +125,11 @@ class _interstspage2State extends State<interstspage2> {
           )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomePage(),
+              ));
         },
         backgroundColor: const Color.fromRGBO(239, 214, 172, 1),
         child: const Icon(

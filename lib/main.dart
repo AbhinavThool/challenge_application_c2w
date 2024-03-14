@@ -7,18 +7,17 @@ import 'Screens/name.dart';
 void main() {
   runApp(const MyApp());
 }
+
 const primaryColor = Color.fromARGB(255, 239, 214, 172);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
-      
     );
   }
 }
@@ -36,9 +35,14 @@ class SplashScreenState extends State<MyHomePage> {
     super.initState();
     print("In init");
     Timer(
-        const Duration(seconds: 3),
-        () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const WelcomeScreen())));
+      const Duration(seconds: 3),
+      () => Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const WelcomeScreen(),
+        ),
+      ),
+    );
   }
 
   @override
@@ -46,10 +50,14 @@ class SplashScreenState extends State<MyHomePage> {
     print("In 1st build");
     return Container(
       decoration: const BoxDecoration(
-        gradient: LinearGradient(colors: [
-          Color.fromARGB(255, 239, 214, 172),
-          Color.fromARGB(255, 255, 195, 160)
-        ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+        gradient: LinearGradient(
+          colors: [
+            Color.fromARGB(255, 239, 214, 172),
+            Color.fromARGB(255, 255, 195, 160),
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
       ),
 
       child: Image.asset("assets/LOGO.png"),
@@ -71,30 +79,41 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     super.initState();
     print("In init");
     Timer(
-        const Duration(seconds: 2),
-        () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const welcomescreen2())));
+      const Duration(seconds: 2),
+      () => Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const WelcomeScreenName(),
+        ),
+      ),
+    );
   }
+
   @override
   Widget build(BuildContext context) {
     print("In 2nd build");
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-          gradient: LinearGradient(colors: [
-            Color.fromARGB(255, 239, 214, 172),
-            Color.fromARGB(255, 255, 195, 160)
-          ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+          gradient: LinearGradient(
+            colors: [
+              Color.fromARGB(255, 239, 214, 172),
+              Color.fromARGB(255, 255, 195, 160),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
         ),
         child: Center(
           child: Text(
-                "Welcome",
-                style: GoogleFonts.museoModerno(fontWeight: FontWeight.w500, fontSize: 70)
-                
-              ),
+            "Welcome",
+            style: GoogleFonts.museoModerno(
+              fontWeight: FontWeight.w500,
+              fontSize: 70,
+            ),
+          ),
         ),
       ),
-      
     );
   }
 }
