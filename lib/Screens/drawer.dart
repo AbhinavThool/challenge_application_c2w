@@ -44,77 +44,91 @@ class _HomePage extends State<HomePage> {
         ),
       ),
       drawer: Drawer(
-        child: ListView(children: [
-          const DrawerHeader(
-            decoration:
-                BoxDecoration(color: Color.fromARGB(255, 232, 198, 185)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Hello,",
-                  style: TextStyle(fontSize: 35),
-                ),
-                Text(
-                  "Saurabh",
-                  style: TextStyle(fontSize: 60),
-                )
-              ],
+        child: ListView(
+          children: [
+            const DrawerHeader(
+              decoration:
+                  BoxDecoration(color: Color.fromARGB(255, 232, 198, 185)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Hello,",
+                    style: TextStyle(fontSize: 35),
+                  ),
+                  Text(
+                    "Saurabh",
+                    style: TextStyle(fontSize: 60),
+                  )
+                ],
+              ),
             ),
-          ),
-          ListTile(
-              leading: const Icon(Icons.manage_accounts_rounded),
-              title: const Text("Profile"),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ProfilePage()),
-                );
-              }),
-          ListTile(
+            ListTile(
+                leading: const Icon(Icons.manage_accounts_rounded),
+                title: const Text("Profile"),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProfilePage(),
+                    ),
+                  );
+                }),
+            ListTile(
               leading: const Icon(Icons.edit),
               title: const Text("Blog"),
-              onTap: () => Navigator.pop(context)),
-          ListTile(
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
               leading: const Icon(Icons.group),
               title: const Text("community Challenge"),
-              onTap: () => Navigator.pop(context)),
-          ListTile(
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
               leading: const Icon(Icons.group_outlined),
               title: const Text("Group Challenge"),
-              onTap: () => Navigator.pop(context)),
-          ListTile(
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
               leading: const Icon(Icons.wallpaper),
               title: const Text("wallpaper"),
-              onTap: () => Navigator.pop(context)),
-          ListTile(
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
               leading: const Icon(Icons.notifications_active),
               title: const Text("Remainder"),
-              onTap: () => Navigator.pop(context)),
-          ListTile(
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
               leading: const Icon(Icons.question_mark_sharp),
               title: const Text("FAQ"),
-              onTap: () => Navigator.pop(context)),
-          ListTile(
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
               leading: const Icon(Icons.queue_music),
               title: const Text("Music"),
-              onTap: () => Navigator.pop(context)),
-          ListTile(
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
               leading: const Icon(Icons.multiple_stop_sharp),
               title: const Text("contact us"),
-              onTap: () => Navigator.pop(context)),
-          const Text(
-              "--------------------------------------------------------------------------------"),
-          ListTile(
+              onTap: () => Navigator.pop(context),
+            ),
+            const Text(
+                "--------------------------------------------------------------------------------"),
+            ListTile(
               leading: const Icon(Icons.settings),
               title: const Text("Setting"),
-              onTap: () => Navigator.pop(context)),
-          ListTile(
+              onTap: () => Navigator.pop(context),
+            ),
+            ListTile(
               leading: const Icon(Icons.logout_outlined),
               title: const Text("Log Out"),
-              onTap: () => Navigator.pop(context)),
-        ]),
+              onTap: () => Navigator.pop(context),
+            ),
+          ],
+        ),
       ),
       body: Container(
         decoration: const BoxDecoration(

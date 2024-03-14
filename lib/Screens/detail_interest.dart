@@ -126,10 +126,12 @@ class _DetailedInterestsScreenState extends State<DetailedInterestsScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => HomePage(),
-              ));
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HomePage(),
+            ),
+          );
+          // dispose();
         },
         backgroundColor: const Color.fromRGBO(239, 214, 172, 1),
         child: const Icon(
