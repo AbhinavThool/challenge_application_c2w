@@ -128,16 +128,26 @@ class _HomePage extends State<HomePage> {
           ),
         ),
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   items: [
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.person),
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.person),
-      //     ),
-      //   ],
-      // ),
+      bottomNavigationBar: BottomNavigationBar(
+        elevation: 20,
+        backgroundColor: const Color.fromARGB(255, 255, 195, 160),
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person,
+              size: 30,
+            ),
+            label: 'Profile',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.message,
+              size: 30,
+            ),
+            label: 'Feed',
+          ),
+        ],
+      ),
     );
   }
 }
