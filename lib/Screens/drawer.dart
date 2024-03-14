@@ -107,16 +107,12 @@ class _HomePage extends State<HomePage> {
           ]),
         ),
         body: Container(
-          
           decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
               Color.fromARGB(255, 239, 214, 172),
               Color.fromARGB(255, 255, 195, 160)
             ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
           ),
-          
-          
-        
         ));
   }
 }
