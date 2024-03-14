@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:challenge_application_c2w/Screens/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -37,7 +36,7 @@ class SplashScreenState extends State<MyHomePage> {
     super.initState();
     print("In init");
     Timer(
-        Duration(seconds: 3),
+        const Duration(seconds: 3),
         () => Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => const WelcomeScreen())));
   }
@@ -72,7 +71,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     super.initState();
     print("In init");
     Timer(
-        Duration(seconds: 2),
+        const Duration(seconds: 2),
         () => Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => const welcomescreen2())));
   }
