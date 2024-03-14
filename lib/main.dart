@@ -1,19 +1,98 @@
-import 'package:challenge_application_c2w/Screens/profile_page.dart';
+import 'dart:async';
+import 'package:challenge_application_c2w/Screens/drawer.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
 }
+const primaryColor = Color.fromARGB(255, 239, 214, 172);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+  
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      home: MyHomePage(),
       debugShowCheckedModeBanner: false,
-      home: ProfilePage(),
+      
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
+  @override
+  SplashScreenState createState() => SplashScreenState();
+}
+
+class SplashScreenState extends State<MyHomePage> {
+  @override
+  void initState() {
+    super.initState();
+    print("In init");
+    Timer(
+        Duration(seconds: 3),
+        () => Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const WelcomeScreen())));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    print("In 1st build");
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(colors: [
+          Color.fromARGB(255, 239, 214, 172),
+          Color.fromARGB(255, 255, 195, 160)
+        ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+      ),
+
+      child: Image.asset("assets/LOGO.png"),
+      //child:FlutterLogo(size:MediaQuery.of(context).size.height)
+    );
+  }
+}
+
+class WelcomeScreen extends StatefulWidget {
+  const WelcomeScreen({super.key});
+
+  @override
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    print("In init");
+    Timer(
+        Duration(seconds: 2),
+        () => Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const HomePage())));
+  }
+  @override
+  Widget build(BuildContext context) {
+    print("In 2nd build");
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(colors: [
+            Color.fromARGB(255, 239, 214, 172),
+            Color.fromARGB(255, 255, 195, 160)
+          ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+        ),
+        child: const Center(
+          child: Text(
+                "Welcome",
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 70),
+                
+              )
+        ),
+      ),
+      
     );
   }
 }
