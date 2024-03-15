@@ -15,16 +15,16 @@ class InterestsScreen extends StatefulWidget {
 class _InterestsScreenState extends State<InterestsScreen> {
   Color c1 = const Color.fromRGBO(255, 195, 160, 1);
   List logo = [
-    "assets/images/personalgrowth.svg",
-    "assets/images/Relationships.svg",
-    "assets/images/lifestyle.svg",
-    "assets/images/productivity.svg",
-    "assets/images/selflove.svg",
-    "assets/images/learning.svg",
-    "assets/images/mentalhealth.svg",
-    "assets/images/campervan.svg",
-    "assets/images/productivity.svg",
-    "assets/images/healthcare.svg"
+    "assets/svgs/personalgrowth.svg",
+    "assets/svgs/Relationships.svg",
+    "assets/svgs/lifestyle.svg",
+    "assets/svgs/productivity.svg",
+    "assets/svgs/selflove.svg",
+    "assets/svgs/learning.svg",
+    "assets/svgs/mentalhealth.svg",
+    "assets/svgs/campervan.svg",
+    "assets/svgs/productivity.svg",
+    "assets/svgs/healthcare.svg"
   ];
 
   List<bool> isCheckedList = List.generate(10, (index) => false);

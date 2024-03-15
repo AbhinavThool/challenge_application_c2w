@@ -1,10 +1,90 @@
 import 'dart:async';
+import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'Screens/name.dart';
+import 'package:path/path.dart' as path;
+import 'package:sqflite/sqflite.dart';
 
-void main() {
+dynamic database;
+List<Days21> maplist = List.empty(growable: true);
+
+class Days21 {
+  int? id;
+  String name;
+  String gender;
+  int age;
+  String mail;
+
+  Days21({
+    this.id,
+    required this.name,
+    required this.gender,
+    required this.age,
+    required this.mail,
+  });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'name': name,
+      'gender': gender,
+      'age': age,
+      'mail': mail,
+    };
+  }
+
+  @override
+  String toString() {
+    return '{id:$id,name:$name,gender:$gender,mail:$mail,age:$age}';
+  }
+}
+
+Future insertNewTask(Days21 obj) async {
+  print("in insert");
+  final localdb = await database;
+
+  await localdb.insert(
+    "userdata",
+    obj.toMap(),
+    conflictAlgorithm: ConflictAlgorithm.replace,
+  );
+}
+
+Future<List<Days21>> getTasks() async {
+  print("in gettask");
+  final localdb = await database;
+
+  List<Map<String, dynamic>> userList = await localdb.query("userdata");
+  print("in last of get");
+  print(userList);
+  return List.generate(
+      userList.length,
+      (i) => Days21(
+          id: userList[i]['id'],
+          name: userList[i]['name'],
+          gender: userList[i]['gender'],
+          age: userList[i]['age'],
+          mail: userList[i]['mail']));
+}
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  database = await openDatabase(
+    path.join(await getDatabasesPath(), "days21DB.db"),
+    version: 1,
+    onCreate: (db, version) async {
+      await db.execute('''CREATE TABLE userdata
+          (id INT PRIMARY KEY AUTOINCREMENT,
+          name TEXT,
+          mail TEXT,
+          gender TEXT,
+           age TEXT) ''');
+    },
+  );
+  //maplist = await getTasks();
+  //print(await getTasks());
+  //print(await maplist);
   runApp(const MyApp());
 }
 
