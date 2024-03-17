@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -76,7 +75,7 @@ void main() async {
     version: 1,
     onCreate: (db, version) async {
       await db.execute('''CREATE TABLE userdata
-          (id INT PRIMARY KEY AUTOINCREMENT,
+          (id INTEGER PRIMARY KEY AUTOINCREMENT,
           name TEXT,
           mail TEXT,
           gender TEXT,
