@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:challenge_application_c2w/main.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -76,7 +77,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Saurabh Gheware',
+                        maplist[index].name,
                         style: GoogleFonts.montserrat(
                           color: Colors.black,
                           fontSize: 24,
@@ -86,7 +87,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       SizedBox(
                         width: 200,
                         child: Text(
-                          'Hello, I am Saurabh, I know coding and i can build apps, I am here for mental peace',
+                          'Hello, I am ${maplist[index].name}, I know coding and i can build apps, I am here for mental peace',
                           style: GoogleFonts.montserrat(
                             color: Colors.black,
                             fontSize: 16,
@@ -265,7 +266,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           height: 5,
                         ),
                         Text(
-                          "SaurabhGheware9447@gmail.com",
+                          maplist[index].mail,
                           style: GoogleFonts.montserrat(
                             fontSize: 16,
                             fontWeight: FontWeight.w300,

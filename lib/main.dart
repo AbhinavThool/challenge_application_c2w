@@ -8,6 +8,7 @@ import 'package:path/path.dart' as path;
 import 'package:sqflite/sqflite.dart';
 
 dynamic database;
+int index = 0;
 List<Days21> maplist = List.empty(growable: true);
 
 class Days21 {
