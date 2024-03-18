@@ -3,7 +3,6 @@ import 'package:challenge_application_c2w/Screens/task_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:path/path.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -59,7 +58,15 @@ class _HomeScreenPage extends State<HomeScreen> {
     });
   }
 
-  List<ToDoModelClass> todoList = [];
+  List<ToDoModelClass> todoList = [
+    ToDoModelClass(
+      title: 'Hello guys, I am feeling so good after using this application',
+    ),
+    ToDoModelClass(
+      title:
+          'Hello guys, I am so happy, and feeling refreshing, I wish i knew this app earlier. This app helped me to heal myself at y lowest.',
+    ),
+  ];
 
   TextEditingController dateController = TextEditingController();
   TextEditingController titleController = TextEditingController();
@@ -235,12 +242,8 @@ class _HomeScreenPage extends State<HomeScreen> {
             ),
           )
         ],
-        backgroundColor: const Color.fromARGB(
-          255,
-          239,
-          214,
-          172,
-        ),
+        backgroundColor: const Color.fromARGB(255, 239, 214, 172),
+        foregroundColor: Colors.black,
       ),
       drawer: Drawer(
         child: ListView(
@@ -332,13 +335,13 @@ class _HomeScreenPage extends State<HomeScreen> {
       ),
       body: screenIndex
           ? GestureDetector(
-              // onTap: () {
-              //   Navigator.push(
-              //       context,
-              //       MaterialPageRoute(
-              //         builder: (context) => TaskScreen(),
-              //       ));
-              // },
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TaskScreen(),
+                    ));
+              },
               child: Container(
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
@@ -432,151 +435,165 @@ class _HomeScreenPage extends State<HomeScreen> {
                       topRight: Radius.circular(40))),
               child: Padding(
                 padding: const EdgeInsets.only(top: 25),
-                child: ListView.builder(
-                    itemCount: todoList.length,
-                    itemBuilder: (context, index) {
-                      return Slidable(
-                        useTextDirection: true,
-                        closeOnScroll: true,
-                        endActionPane: ActionPane(
-                          extentRatio: 0.2,
-                          motion: const ScrollMotion(),
-                          children: [
-                            Expanded(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: todoList.length,
+                          itemBuilder: (context, index) {
+                            return Slidable(
+                              useTextDirection: true,
+                              closeOnScroll: true,
+                              endActionPane: ActionPane(
+                                extentRatio: 0.2,
+                                motion: const ScrollMotion(),
                                 children: [
-                                  const SizedBox(
-                                    height: 5,
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      editTask(todoList[index]);
-                                    },
-                                    child: Container(
-                                      padding: const EdgeInsets.all(10),
-                                      height: 40,
-                                      width: 40,
-                                      decoration: BoxDecoration(
-                                        color: const Color.fromRGBO(
-                                            89, 57, 241, 1),
-                                        borderRadius: BorderRadius.circular(20),
-                                      ),
-                                      child: const Icon(
-                                        Icons.edit,
-                                        color: Colors.white,
-                                        size: 20,
-                                      ),
+                                  Expanded(
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        const SizedBox(
+                                          height: 5,
+                                        ),
+                                        GestureDetector(
+                                          onTap: () {
+                                            editTask(todoList[index]);
+                                          },
+                                          child: Container(
+                                            padding: const EdgeInsets.all(10),
+                                            height: 40,
+                                            width: 40,
+                                            decoration: BoxDecoration(
+                                              color: const Color.fromRGBO(
+                                                  89, 57, 241, 1),
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                            ),
+                                            child: const Icon(
+                                              Icons.edit,
+                                              color: Colors.white,
+                                              size: 20,
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 20,
+                                        ),
+                                        GestureDetector(
+                                          onTap: () {
+                                            removeTasks(todoList[index]);
+                                          },
+                                          child: Container(
+                                            padding: const EdgeInsets.all(5),
+                                            height: 40,
+                                            width: 40,
+                                            decoration: BoxDecoration(
+                                              color: const Color.fromRGBO(
+                                                  89, 57, 241, 1),
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                            ),
+                                            child: const Icon(
+                                              Icons.delete,
+                                              color: Colors.white,
+                                              size: 20,
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 5,
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      removeTasks(todoList[index]);
-                                    },
-                                    child: Container(
-                                      padding: const EdgeInsets.all(5),
-                                      height: 40,
-                                      width: 40,
-                                      decoration: BoxDecoration(
-                                        color: const Color.fromRGBO(
-                                            89, 57, 241, 1),
-                                        borderRadius: BorderRadius.circular(20),
-                                      ),
-                                      child: const Icon(
-                                        Icons.delete,
-                                        color: Colors.white,
-                                        size: 20,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 5,
                                   ),
                                 ],
                               ),
-                            ),
-                          ],
-                        ),
-                        key: ValueKey(index),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 15,
-                            vertical: 16,
-                          ),
-                          child: Container(
-                            width: double.infinity,
-                            padding: EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 20),
-                            // height: 90,
-                            //height: 618,
-                            decoration: const BoxDecoration(
-                                color: Colors.white,
-                                boxShadow: [
-                                  BoxShadow(
-                                    offset: Offset(2, 2),
-                                    color: Color.fromRGBO(0, 0, 0, 0.08),
-                                    spreadRadius: 0.8,
-                                    blurRadius: 20,
-                                  )
-                                ],
-                                borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(40),
-                                    //topLeft: Radius.circular(40),
-                                    topRight: Radius.circular(40))),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      margin: const EdgeInsets.only(left: 10),
-                                      height: 30,
-                                      width: 30,
-                                      decoration: const BoxDecoration(
-                                        color: Colors.grey,
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                          image: NetworkImage(
-                                            'https://media.licdn.com/dms/image/D4D03AQEoOg83YiF6Xg/profile-displayphoto-shrink_800_800/0/1672695642434?e=2147483647&v=beta&t=hFlHM9_Tnr_JMqtngfblCBkEPSCgyb7ALWhEQHHCoW8',
+                              key: ValueKey(index),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 15,
+                                  vertical: 16,
+                                ),
+                                child: Container(
+                                  width: double.infinity,
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 20),
+                                  // height: 90,
+                                  //height: 618,
+                                  decoration: const BoxDecoration(
+                                      color: Colors.white,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          offset: Offset(2, 2),
+                                          color: Color.fromRGBO(0, 0, 0, 0.08),
+                                          spreadRadius: 0.8,
+                                          blurRadius: 20,
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(40),
+                                          //topLeft: Radius.circular(40),
+                                          topRight: Radius.circular(40))),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(left: 10),
+                                            height: 30,
+                                            width: 30,
+                                            decoration: const BoxDecoration(
+                                              color: Colors.grey,
+                                              shape: BoxShape.circle,
+                                              image: DecorationImage(
+                                                image: NetworkImage(
+                                                  'https://media.licdn.com/dms/image/D4D03AQEoOg83YiF6Xg/profile-displayphoto-shrink_800_800/0/1672695642434?e=2147483647&v=beta&t=hFlHM9_Tnr_JMqtngfblCBkEPSCgyb7ALWhEQHHCoW8',
+                                                ),
+                                              ),
+                                            ),
                                           ),
+                                          const SizedBox(
+                                            width: 10,
+                                          ),
+                                          Text(
+                                            "Saurabh",
+                                            style: GoogleFonts.quicksand(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 24,
+                                              color: const Color.fromRGBO(
+                                                  0, 0, 0, 1),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        todoList[index].title,
+                                        style: GoogleFonts.quicksand(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 20,
+                                          color:
+                                              const Color.fromRGBO(0, 0, 0, 1),
                                         ),
                                       ),
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    Text(
-                                      "Saurabh Gheware",
-                                      style: GoogleFonts.quicksand(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 24,
-                                        color: const Color.fromRGBO(0, 0, 0, 1),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  todoList[index].title,
-                                  style: GoogleFonts.quicksand(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 20,
-                                    color: const Color.fromRGBO(0, 0, 0, 1),
+                                    ],
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      );
-                    }),
+                              ),
+                            );
+                          }),
+                    ],
+                  ),
+                ),
               ),
             ),
       floatingActionButton: screenIndex

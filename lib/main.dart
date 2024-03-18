@@ -81,6 +81,12 @@ void main() async {
           mail TEXT,
           gender TEXT,
            age TEXT) ''');
+
+      await db.execute('''CREATE TABLE task
+          (id INTEGER PRIMARY KEY AUTOINCREMENT,
+          title TEXT,
+          description Text,
+           date INTEGER) ''');
     },
   );
   //maplist = await getTasks();

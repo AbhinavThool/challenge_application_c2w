@@ -83,10 +83,10 @@ class _DetailedInterestsScreenState extends State<DetailedInterestsScreen> {
                                       title[index],
                                       style: GoogleFonts.montserrat(
                                         textStyle: const TextStyle(
-                                            fontSize: 18,
-                                            color:
-                                                Color.fromRGBO(24, 58, 55, 1),
-                                            fontWeight: FontWeight.w600),
+                                          fontSize: 18,
+                                          color: Color.fromRGBO(24, 58, 55, 1),
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                       ),
                                     ),
                                   ),

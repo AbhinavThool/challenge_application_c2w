@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:challenge_application_c2w/main.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});

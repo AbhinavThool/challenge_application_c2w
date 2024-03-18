@@ -41,7 +41,7 @@ class _InterestsScreenState extends State<InterestsScreen> {
     "Health",
   ];
 
-  bool isChecked = false;
+    bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
