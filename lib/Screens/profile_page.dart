@@ -9,10 +9,9 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  
   @override
   Widget build(BuildContext context) {
-    return Scaffold(  
+    return Scaffold(
       body: Container(
         decoration: const BoxDecoration(),
         width: double.infinity,
@@ -76,7 +75,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Saurabh",
+                      Text(
+                        "Saurabh",
                         // maplist[index].name,
                         style: GoogleFonts.montserrat(
                           color: Colors.black,
@@ -313,7 +313,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             height: 5,
                           ),
                           Text(
-                            "9096867158",
+                            "",
                             style: GoogleFonts.montserrat(
                               fontSize: 16,
                               fontWeight: FontWeight.w300,
