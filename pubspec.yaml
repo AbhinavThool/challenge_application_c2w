@@ -38,6 +38,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   path: ^1.8.3
   sqflite: ^2.3.2
+  flutter_slidable: ^3.1.0
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +65,16 @@ flutter:
   assets:
     - assets/LOGO.png
     - assets/svgs/
+    - assets/images/icon.png
+    - assets/images/icon-1.png
+    - assets/images/icon-2.png
+    - assets/images/icon-3.png
+    - assets/images/icon-4.png
+    - assets/images/icon-5.png
+    - assets/images/icon-6.png
+    - assets/images/icon-7.png
+    - assets/images/icon-8.png
+    - assets/images/icon-9.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
