@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> {
-  //int index = 0;
+  int index = 0;
 
   //List menu = ['Saurabh', 'gheware'];
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -48,8 +48,8 @@ class _HomePage extends State<HomePage> {
         child: ListView(
           children: [
             DrawerHeader(
-              decoration:
-                  const BoxDecoration(color: Color.fromARGB(255, 232, 198, 185)),
+              decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 232, 198, 185)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -57,9 +57,9 @@ class _HomePage extends State<HomePage> {
                     "Hello,",
                     style: TextStyle(fontSize: 35),
                   ),
-                  Text(
-                    maplist[index].name,
-                    style:const TextStyle(fontSize: 60),
+                  Text("Saurabh",
+                    // maplist[index].name,
+                    style: const TextStyle(fontSize: 60),
                   )
                 ],
               ),
