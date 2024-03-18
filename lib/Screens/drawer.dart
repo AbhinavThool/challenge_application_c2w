@@ -92,7 +92,7 @@ class _HomeScreenPage extends State<HomeScreen> {
                 height: 10,
               ),
               Text(
-                "Create Task",
+                "Add a Post",
                 style: GoogleFonts.quicksand(
                   fontWeight: FontWeight.w600,
                   fontSize: 22,
@@ -106,7 +106,7 @@ class _HomeScreenPage extends State<HomeScreen> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    "Title",
+                    "Write Your thought",
                     style: GoogleFonts.quicksand(
                       color: const Color.fromRGBO(0, 139, 148, 1),
                       fontWeight: FontWeight.w400,
@@ -535,15 +535,16 @@ class _HomeScreenPage extends State<HomeScreen> {
                                   children: [
                                     Container(
                                       margin: const EdgeInsets.only(left: 10),
-                                      height: 20,
-                                      width: 20,
+                                      height: 30,
+                                      width: 30,
                                       decoration: const BoxDecoration(
                                         color: Colors.grey,
                                         shape: BoxShape.circle,
-                                      ),
-                                      child: Image.network(
-                                        'https://media.licdn.com/dms/image/D4D03AQEoOg83YiF6Xg/profile-displayphoto-shrink_800_800/0/1672695642434?e=2147483647&v=beta&t=hFlHM9_Tnr_JMqtngfblCBkEPSCgyb7ALWhEQHHCoW8',
-                                        color: Colors.white,
+                                        image: DecorationImage(
+                                          image: NetworkImage(
+                                            'https://media.licdn.com/dms/image/D4D03AQEoOg83YiF6Xg/profile-displayphoto-shrink_800_800/0/1672695642434?e=2147483647&v=beta&t=hFlHM9_Tnr_JMqtngfblCBkEPSCgyb7ALWhEQHHCoW8',
+                                          ),
+                                        ),
                                       ),
                                     ),
                                     const SizedBox(
@@ -553,21 +554,10 @@ class _HomeScreenPage extends State<HomeScreen> {
                                       "Saurabh Gheware",
                                       style: GoogleFonts.quicksand(
                                         fontWeight: FontWeight.w600,
-                                        fontSize: 20,
+                                        fontSize: 24,
                                         color: const Color.fromRGBO(0, 0, 0, 1),
                                       ),
                                     ),
-                                    // Expanded(
-                                    //   child: Column(
-                                    //     crossAxisAlignment:
-                                    //         CrossAxisAlignment.start,
-                                    //     children: [
-                                    //       const SizedBox(height: 10),
-                                    //       const SizedBox(height: 10),
-
-                                    //     ],
-                                    //   ),
-                                    // ),
                                   ],
                                 ),
                                 SizedBox(
@@ -577,7 +567,7 @@ class _HomeScreenPage extends State<HomeScreen> {
                                   todoList[index].title,
                                   style: GoogleFonts.quicksand(
                                     fontWeight: FontWeight.w400,
-                                    fontSize: 15,
+                                    fontSize: 20,
                                     color: const Color.fromRGBO(0, 0, 0, 1),
                                   ),
                                 ),
